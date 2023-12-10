@@ -7,7 +7,7 @@ export function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname
 
   //login and signup path made public and accesible to everybody except a user  that is logged in
-  const isPublicPath = path === '/login' || path === '/signup'
+  const isPublicPath = path === '/login' || path === '/signup' || path === '/verifyemail'
 
   const token = request.cookies.get('token')?.value || ""
 
@@ -24,10 +24,11 @@ export function middleware(request: NextRequest) {
  
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: [ //paths we want our middleware to execute on before response is fetched
+  matcher: [ //paths we want our middleware to execute on before response is fetched from server
     '/',
     '/profile',
     '/login',
-    '/signup'
+    '/signup',
+    '/verifyemail'
   ]
 }

@@ -25,6 +25,7 @@ export default function ProfilePage() {
   }
 
   return (
+    //we can actually use the useEffect hook to display the data from the token on page load instead of having to click the get user details button below
     <div className='flex flex-col items-center justify-center min-h-screen py-2'>
         <h1>Profile</h1>
         <hr />
