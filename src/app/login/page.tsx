@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React, { useEffect } from "react";
 import {useRouter} from "next/navigation";
 import axios from 'axios';
+import { FaExclamationCircle } from "react-icons/fa";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -15,6 +16,10 @@ export default function LoginPage() {
 
   const [loading, setLoading] = React.useState(false)
 
+  const [error, setError] = React.useState(false);
+
+  // const [passwordError, setPasswordError] = React.useState(false);
+
 
   const checkButtonState = async () => {
     if (!buttondisabled) { 
@@ -26,6 +31,7 @@ export default function LoginPage() {
           router.push("/profile")
     
         } catch (error: any) {
+          setError(true)
           console.log(error.message);
           
         } finally {
@@ -36,6 +42,14 @@ export default function LoginPage() {
     }
   }
 
+  // if (error.message === ({error: "User does not exist"})) {
+  //   setUsernameError(false);
+  //   console.log(usernameError);
+  // } else  if (error.message === ({error: "Invalid password"})) {
+  //   setPasswordError(false);
+  //   console.log(passwordError);
+  // }
+
 
   useEffect(() => {
     if(user.email.length > 0 && user.password.length > 0 ) {
@@ -45,14 +59,6 @@ export default function LoginPage() {
     }
   }, [user])
 
-  const resetPassword = async () => {
-    try {
-      await axios.post("/api/users/resetpassword", user)
-      console.log(user)
-    } catch (error: any) {
-      console.log(error.message)
-    }
-  }
 
   return (
     <div className='flex items-center justify-center  min-h-screen py-2  bg-slate-900'>
@@ -81,17 +87,23 @@ export default function LoginPage() {
           placeholder="password"
         />
 
-        <button
-          onClick={resetPassword}
+        <Link
+          href='/getresetpasswordlink'
           className='text-sm w-fit hover:text-gray-600'
           >Forgot Password?
-        </button>
+        </Link>
 
         <button
           onClick={checkButtonState}
           className='p-2 h-12 text-white font-bold bg-green-500 border border-gray-300 rounded-lg my-6 hover:bg-green-800'
           >Login
         </button>
+        {error && (
+          <div className='flex items-center gap-2 font-bold text-red-500'>
+            <p className='text-sm'>Email or password incorrect</p>
+            <FaExclamationCircle />
+          </div>
+        )}
       </div>
 
     </div>
