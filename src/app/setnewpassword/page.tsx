@@ -38,13 +38,13 @@ export default function ResetPasswordPage() {
         if (user.password.length >= 8) {
             setError(false);
         }
-    }, [])
+    }, [error])
 
 
     useEffect(() => {
         const urlToken = window.location.search.split("=")[1];
         setUser({...user, token: urlToken || ""});
-    }, [])
+    }, [user])
 
     return (
         <div className="flex items-center justify-center min-h-screen py-2 bg-slate-900">
