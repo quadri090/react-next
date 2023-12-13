@@ -52,7 +52,7 @@ export default function LoginPage() {
     <div className='flex items-center justify-center  min-h-screen py-2  bg-slate-900'>
       <div  className='flex flex-col text-left w-[500px] text-lg font-medium p-8 text-black rounded-xl  bg-slate-300'>
         <div className='text-center'>
-          <h1 className='text-[24px] font-bold'>{loading ?  "verifying" : "Login to your account"}</h1>
+          <h1 className='text-[24px] font-bold'>{loading ?  "verifying..." : "Login to your account"}</h1>
           <p className='text-base mt-2'>Don't have an account? <span><Link href='/signup' className='text-orange-500 font-bold hover:text-gray-600 w-fit'>Signup</Link></span></p>
         </div>
         <label htmlFor="email" className='mt-8'>Email</label>

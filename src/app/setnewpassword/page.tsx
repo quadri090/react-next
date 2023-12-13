@@ -38,8 +38,7 @@ export default function ResetPasswordPage() {
         if (user.password.length >= 8) {
             setError(false);
         }
-        console.log(error)
-    }, [user.password])
+    }, [])
 
 
     useEffect(() => {
