@@ -5,7 +5,7 @@ import {useRouter} from "next/navigation";
 import axios from 'axios';
 import { FaExclamationCircle } from "react-icons/fa";
 
-export default function getResetPasswordLinkPage() {
+export default function GetResetPasswordLinkPage() {
     const router = useRouter();
     const [user, setUser] = React.useState({
       email: ""

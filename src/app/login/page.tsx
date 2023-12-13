@@ -18,9 +18,6 @@ export default function LoginPage() {
 
   const [error, setError] = React.useState(false);
 
-  // const [passwordError, setPasswordError] = React.useState(false);
-
-
   const checkButtonState = async () => {
     if (!buttondisabled) { 
       const onLogin = async () => {
@@ -41,15 +38,6 @@ export default function LoginPage() {
       onLogin()
     }
   }
-
-  // if (error.message === ({error: "User does not exist"})) {
-  //   setUsernameError(false);
-  //   console.log(usernameError);
-  // } else  if (error.message === ({error: "Invalid password"})) {
-  //   setPasswordError(false);
-  //   console.log(passwordError);
-  // }
-
 
   useEffect(() => {
     if(user.email.length > 0 && user.password.length > 0 ) {

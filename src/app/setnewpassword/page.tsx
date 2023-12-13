@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { FaExclamationCircle } from "react-icons/fa";
 import Link from "next/link";
 
-export default function resetPasswordPage() {
+export default function ResetPasswordPage() {
     const router = useRouter()
     const [user, setUser] = useState({
         token: "",
