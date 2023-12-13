@@ -18,6 +18,8 @@ export default function LoginPage() {
 
   const [error, setError] = React.useState(false);
 
+  const [emptyField, setEmptyField] = React.useState(false)
+
   const checkButtonState = async () => {
     if (!buttondisabled) { 
       const onLogin = async () => {
@@ -36,6 +38,9 @@ export default function LoginPage() {
         }
       }
       onLogin()
+    } else if(buttondisabled) {
+      setEmptyField(true)
+      setError(false)
     }
   }
 
@@ -44,13 +49,14 @@ export default function LoginPage() {
       setButtonDisabled(false)
     } else {
       setButtonDisabled(true)
+      setEmptyField(false)
     }
   }, [user])
 
 
   return (
-    <div className='flex items-center justify-center  min-h-screen py-2  bg-slate-900'>
-      <div  className='flex flex-col text-left w-[500px] text-lg font-medium p-8 text-black rounded-xl  bg-slate-300'>
+    <div className='flex items-center justify-center min-h-screen py-2  bg-slate-900'>
+      <div  className='flex flex-col text-left w-full sm:w-[500px]  mx-4 sm:mx-0 text-lg font-medium p-8 text-black rounded-xl  bg-slate-300'>
         <div className='text-center'>
           <h1 className='text-[24px] font-bold'>{loading ?  "verifying..." : "Login to your account"}</h1>
           <p className='text-base mt-2'>Don&apos;t have an account? <span><Link href='/signup' className='text-orange-500 font-bold hover:text-gray-600 w-fit'>Signup</Link></span></p>
@@ -89,6 +95,13 @@ export default function LoginPage() {
         {error && (
           <div className='flex items-center gap-2 font-bold text-red-500'>
             <p className='text-sm'>Email or password incorrect</p>
+            <FaExclamationCircle />
+          </div>
+        )}
+
+        {emptyField && (
+          <div className='flex items-center gap-2 font-bold text-red-500'>
+            <p className='text-sm'>Fields can not be empty</p>
             <FaExclamationCircle />
           </div>
         )}

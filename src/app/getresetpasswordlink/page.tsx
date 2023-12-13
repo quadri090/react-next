@@ -46,7 +46,7 @@ export default function GetResetPasswordLinkPage() {
 
     return (
         <div className='flex items-center justify-center  min-h-screen py-2 bg-slate-900'>
-            <div className='flex flex-col text-left w-[500px] text-lg font-medium p-8 text-black rounded-xl  bg-slate-300'>
+            <div className='flex flex-col text-left w-full sm:w-[500px]  mx-4 sm:mx-0  text-lg font-medium p-8 text-black rounded-xl  bg-slate-300'>
                 {/* <label htmlFor="email" className='mt-6'>Email</label> */}
 
                 {!success && (

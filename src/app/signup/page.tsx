@@ -48,7 +48,7 @@ export default function SignupPage() {
 
   return (
     <div className='flex items-center justify-center  min-h-screen py-2  bg-slate-900'>
-      <div className='flex flex-col text-left w-[500px] p-8 text-black text-lg font-medium rounded-xl  bg-slate-300'>
+      <div className='flex flex-col text-left w-full sm:w-[500px]  mx-4 sm:mx-0  p-8 text-black text-lg font-medium rounded-xl  bg-slate-300'>
         <div className='text-center'>
           <h1 className='text-[24px] font-bold'>{loading ?  "processing" : "Sign up to create account"}</h1>
           <p className='text-base mt-2'>Already have an account? <span><Link href='/login' className='text-orange-500 font-bold hover:text-gray-600 w-fit'>Login</Link></span></p>

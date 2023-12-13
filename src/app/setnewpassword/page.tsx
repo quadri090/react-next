@@ -48,7 +48,7 @@ export default function ResetPasswordPage() {
 
     return (
         <div className="flex items-center justify-center min-h-screen py-2 bg-slate-900">
-            <div className='flex flex-col text-left w-[500px] text-lg font-medium p-8 text-black rounded-xl  bg-slate-300'>
+            <div className='flex flex-col text-left w-full sm:w-[500px]  mx-4 sm:mx-0  text-lg font-medium p-8 text-black rounded-xl  bg-slate-300'>
                 <h1 className='text-[18px] font-semibold'>Enter new password</h1>
                 <input
                 className='text-gray-600 p-2 border border-gray-300 rounded-lg mt-6 mb-2 h-12 focus:outline-none focus:border-gray-600'
